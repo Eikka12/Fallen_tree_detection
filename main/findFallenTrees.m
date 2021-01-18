@@ -294,7 +294,7 @@ end
 function validateHRange(hRange)
 
 if diff(hRange) < 0
-    eidType = 'firstElementMustBeSmaller:firstElementNotSmaller';
+    eidType = 'validateHRange:firstElementNotSmaller';
     msgType = 'The lower bound must be smaller than the upper bound.';
     throwAsCaller(MException(eidType,msgType))
 end
