@@ -10,8 +10,9 @@ function storer = findFallenTrees(filename,preprocessing,...
 %   The function takes the following input arguments of which 'filename' is
 %   required and all other arguments are optional Name-Value arguments:
 %   
-%   filename: The full filepath to the las file to be processed. The only
-%   required argument of the function.
+%   filename: The full filepath to the las file to be processed. The points
+%   in the las file should be height-normalized. This is the only required
+%   argument of the function.
 %   classes: A vector containing the laser point classes to be used in line
 %   detection. All laser points with a class not included in this vector
 %   are removed from the point cloud. By default, only the ground class
