@@ -211,9 +211,18 @@ end
 if ~isa(finalClassification.finalClassifier,'SeriesNetwork') &&...
         finalClassification.useFalseTreeRemoval
     % Use default final classifier
-    fClassifier = load('finalClassifier.mat');
-    finalClassification.finalClassifier = fClassifier.finalClassifier;
-    finalClassification.finalCellSize = 0.025;
+    try
+        fClassifier = load('finalClassifier.mat');
+        finalClassification.finalClassifier = fClassifier.finalClassifier;
+        finalClassification.finalCellSize = 0.025;
+    catch
+        warning(strcat("The default final classifier was not found. ",...
+            "Final classification will not be performed. If you want ",...
+            "to use the false tree removal step (step 4), provide a ",...
+            "convolutional neural network trained using the functions ",...
+            "in the folder ../final_classifier_training."))
+        finalClassification.useFalseTreeRemoval = 0;
+    end
 end
 
 %% 1. Preprocessing
