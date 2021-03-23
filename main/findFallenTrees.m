@@ -108,7 +108,7 @@ function storer = findFallenTrees(filename,preprocessing,...
 %   connected component classification step is used. The default value is
 %   1.
 %   useFalseTreeRemoval: A logical value that determines whether the false
-%   tree removal step is used. The default value is 1.
+%   tree removal step is used. The default value is 0.
 %
 %   The function extracts fallen trees from a point cloud. The detection
 %   process consists of four steps:
@@ -152,7 +152,7 @@ function storer = findFallenTrees(filename,preprocessing,...
 %   usage of these steps depends on the input arguments
 %   'useConnCompClassification' and 'useFalseTreeRemoval'. The function
 %   delineates the fallen trees from the point cloud even if the false tree
-%   removal step is not used. By default, both steps are used.
+%   removal step is not used. By default, step 2 is used but step 4 is not.
 %
 %   The function returns the detected and delineated fallen tree segments
 %   as a TreeSegmentStorer object. The storer contains the line segment
@@ -187,7 +187,7 @@ arguments
    delineation.radTH (1,1) double {mustBePositive} = 0.5
    delineation.distTH (1,1) double {mustBePositive} = 0.2
    
-   finalClassification.useFalseTreeRemoval {mustBeNumericOrLogical} = 1
+   finalClassification.useFalseTreeRemoval {mustBeNumericOrLogical} = 0
    finalClassification.finalClassifier = nan
    finalClassification.cutoffProb (1,1) double...
        {mustBeGreaterThanOrEqual(finalClassification.cutoffProb,0),...
