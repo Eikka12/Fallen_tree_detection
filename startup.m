@@ -1,5 +1,8 @@
 addpath('./trained_classifiers')
 addpath('./third_party')
+addpath('./third_party/vislabels')
+addpath('./third_party/lasdata')
+addpath('./third_party/houghpoint')
 addpath('./main')
 addpath('./general')
 addpath('./final_classifier_training')
