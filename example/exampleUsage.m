@@ -1,4 +1,9 @@
-% This script shows a basic example on how to detect fallen trees using the function findFallenTrees. Check the documentation of findFallenTrees for more information on how to use the function.
+% This script shows a basic example on how to detect fallen trees using the
+% function findFallenTrees. Check the documentation of findFallenTrees for
+% more information on how to use the function.
+
+%% Add the required filepaths to the MATLAB path
+run('../startup.m')
 
 %% Find the fallen trees in the given point cloud
 filename = 'ea000001.las';
