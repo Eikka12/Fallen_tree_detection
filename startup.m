@@ -1,0 +1,7 @@
+addpath('./trained_classifiers')
+addpath('./third_party')
+addpath('./main')
+addpath('./general')
+addpath('./final_classifier_training')
+addpath('./example')
+addpath('./connected_component_training')
