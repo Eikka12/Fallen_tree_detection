@@ -228,12 +228,14 @@ classdef TreeSegmentStorer < handle & matlab.mixin.Copyable
         end
         
         % Writing segments to a file
-        function segmentsToShapefile(obj,filename)
+        function segmentsToShapefile(obj,filename, EPSG)
             %segmentsToShapefile Writes the tree segments stored in the
             %object to a single shapefile.
-            %   segmentsToShapefile(obj,filename) Takes one input argument:
+            %   segmentsToShapefile(obj,filename, EPSG) 
+            %   Takes two input arguments:
             %   filename: The name (and path) of the shapefile to be
             %   written.
+            %   EPSG: The EPSG code of the coordinate reference system
             %
             %   The function writes the stored tree segments to a
             %   shapefile. The file will consist of polylines each
@@ -265,11 +267,15 @@ classdef TreeSegmentStorer < handle & matlab.mixin.Copyable
                 s(i).diameter = diameters(i);
                 s(i).volume = volumes(i);
             end
-
-            S = mapshape(s);
-            spec = makedbfspec(S);
-
-            shapewrite(S,filename,'DbfSpec',spec)
+            
+            S = struct2geotable(s,...
+                CoordinateReferenceSystem=projcrs(EPSG),...
+                GeometryType="line");
+            shapewrite(S,filename)
+            
+            %S = mapshape(s);
+            %spec = makedbfspec(S);
+            %shapewrite(S,filename,'DbfSpec',spec)
         end
         
         

@@ -31,4 +31,4 @@ storer.plotLineSegments(newFig,lineWidth,color)
 %% Write the detected fallen trees to a shapefile. 
 %The attributes of each segment will contain the estimated length, diameter
 %and volume of the segment.
-%storer.segmentsToShapefile('test.shp')
+storer.segmentsToShapefile('new_data.shp', 3067)
